@@ -4,6 +4,7 @@ import com.example.clase9ws20232.entity.Participante;
 import com.example.clase9ws20232.repository.ParticipanteRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class ParticipanteController {
         this.participanteRepository = participanteRepository;
     }
 
-    @PostMapping(value = "/registro")
+    @PostMapping(value = "/registro", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HashMap<String, Object>> guardarParticipante(
             @RequestBody Participante participante,
             @RequestParam(value = "fetchId", required = false) boolean fetchId) {
