@@ -1,6 +1,8 @@
 package com.example.clase9ws20232.controller;
 
+import com.example.clase9ws20232.entity.Equipo;
 import com.example.clase9ws20232.entity.Participante;
+import com.example.clase9ws20232.repository.EquipoRepository;
 import com.example.clase9ws20232.repository.ParticipanteRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -24,7 +26,7 @@ public class ParticipanteController {
     }
 
     @PostMapping(value = "/registro", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HashMap<String, Object>> guardarParticipante(
+    public ResponseEntity<HashMap<String, Object>> guardarEquipo(
             @RequestBody Participante participante,
             @RequestParam(value = "fetchId", required = false) boolean fetchId) {
 
@@ -39,14 +41,8 @@ public class ParticipanteController {
         } catch (DataIntegrityViolationException e) {
             responseMap.put("estado", "error");
 
-            if (e.getMessage().contains("equipo_UNIQUE")) {
-                responseMap.put("msg", "El equipo ya existe en la base de datos.");
-            } else if (e.getMessage().contains("carrera_UNIQUE")) {
-                responseMap.put("msg", "La carrera ya existe en la base de datos.");
-            } else if (e.getMessage().contains("codigo_UNIQUE")) {
-                responseMap.put("msg", "El código del participante ya existe en la base de datos.");
-            } else if (e.getMessage().contains("tipoParticipante_UNIQUE")) {
-                responseMap.put("msg", "El tipo de participante ya existe en la base de datos.");
+            if (e.getMessage().contains("codigo_UNIQUE")) {
+                responseMap.put("msg", "El codigo ya existe en la base de datos.");
             } else {
                 responseMap.put("msg", "Error de integridad en la base de datos.");
             }
@@ -62,7 +58,7 @@ public class ParticipanteController {
         HashMap<String, String> responseMap = new HashMap<>();
         if (request.getMethod().equals("POST")) {
             responseMap.put("estado", "error");
-            responseMap.put("msg", "Debe enviar un participante");
+            responseMap.put("msg", "Debe enviar un equipo");
         }
         return ResponseEntity.badRequest().body(responseMap);
     }
