@@ -28,7 +28,7 @@ CREATE TABLE `deporte` (
   `pesoDeporte` int NOT NULL,
   PRIMARY KEY (`iddeporte`),
   UNIQUE KEY `nombreActividad_UNIQUE` (`nombreDeporte`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `deporte` (
 
 LOCK TABLES `deporte` WRITE;
 /*!40000 ALTER TABLE `deporte` DISABLE KEYS */;
-INSERT INTO `deporte` VALUES (1,'Fútbol',90),(2,'Básquetbol',75);
+INSERT INTO `deporte` VALUES (1,'Fútbol',90),(2,'Básquetbol',75),(3,'Fuchibol',60),(4,'Gasiiño',90);
 /*!40000 ALTER TABLE `deporte` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `equipo` (
   UNIQUE KEY `nombre_UNIQUE` (`nombreEquipo`),
   UNIQUE KEY `color_UNIQUE` (`colorEquipo`),
   UNIQUE KEY `mascota_UNIQUE` (`mascota`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `equipo` (
 
 LOCK TABLES `equipo` WRITE;
 /*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
-INSERT INTO `equipo` VALUES (1,'Lobos','Azul','Lobo'),(2,'Tigres','Amarillo','Tigre');
+INSERT INTO `equipo` VALUES (1,'Lobos','Azul','Lobo'),(2,'Tigres','Amarillo','Tigre'),(5,'Telequineticos','Negro','Murcielago'),(7,'ZZZZivil','Rojo','Hormigon');
 /*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +116,7 @@ CREATE TABLE `participante` (
   PRIMARY KEY (`idparticipante`),
   KEY `fk_participante_equipo_idx` (`equipo`),
   CONSTRAINT `fk_participante_equipo` FOREIGN KEY (`equipo`) REFERENCES `equipo` (`idequipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `participante` (
 
 LOCK TABLES `participante` WRITE;
 /*!40000 ALTER TABLE `participante` DISABLE KEYS */;
-INSERT INTO `participante` VALUES (1,1,'Ingeniería',1234567890,'Jugador'),(2,2,'Medicina',9876543210,'GozudeGozus'),(4,3,'Arquitectura',1122334455,'Portero'),(5,4,'Derecho',5566778899,'Defensor'),(6,5,'Diseño',2233445566,'Delantero'),(7,6,'Psicología',7788991122,'Mediocampista'),(8,7,'Economía',3344556677,'Entrenador'),(9,8,'Comunicación',8899112233,'Asistente'),(10,9,'Literatura',9911223344,'Coordinador'),(11,10,'Historia',4411223355,'Analista');
+INSERT INTO `participante` VALUES (1,1,'Telecomunicaciones',20190057,'Jugador'),(2,2,'Informatica',20190058,'GozudeGozus'),(4,5,'Civil',20190055,'Portero'),(5,7,'Mecanica',20190051,'Defensor'),(6,7,'Mecatrónica',20190052,'Delantero'),(7,2,'Industrial',20190021,'Mediocampista'),(8,7,'Minas',20122123,'Entrenador'),(9,1,'Electrónica',20190012,'Asistente'),(10,1,'Geologica',20190021,'Coordinador'),(11,2,'Biomedica',20190024,'Analista'),(12,2,'Ambiental',20150394,'ElParado'),(13,5,'Telecomunicaciones',20200384,'Egresado'),(14,5,'Informatica',20190089,'Egresado');
 /*!40000 ALTER TABLE `participante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-22 11:42:21
+-- Dump completed on 2023-10-22 17:31:13
