@@ -87,14 +87,11 @@ public class PartidoController {
             respuesta.put("result", "ok");
             respuesta.put("partido", partido);
 
-<<<<<<< HEAD
 
 
 
             //si se manda idequipo listare todos los aprticipantes de dicho partido en ese equipo
-=======
             //si se manda equipo
->>>>>>> 461bf4dbd7f291aa94affab51cbb0c4ade8392eb
             if (idequipo != null) {
                 int equipoId = Integer.parseInt(idequipo);
                 Optional<Equipo> equipoOptional = equipoRepository.findById(equipoId);
@@ -122,15 +119,12 @@ public class PartidoController {
                     respuesta.put("resultequipo", "ID EQUIPO no encontrado");
                 }
 
-<<<<<<< HEAD
 
 
 
 
             //se mando solo el iddelpartido, toncs listare todos los participantes d ese partido nms
-=======
             //no se mandoidequipo
->>>>>>> 461bf4dbd7f291aa94affab51cbb0c4ade8392eb
             } else {
                 // No se proporcionó el parámetro "idequipo", mostrar a todos los participantes del partido
                 respuesta.put("resultequipo", "No se especificó un equipo");
@@ -149,7 +143,6 @@ public class PartidoController {
         }
     }
 
-<<<<<<< HEAD
 
 
 
@@ -157,8 +150,6 @@ public class PartidoController {
 
 
 
-=======
->>>>>>> 461bf4dbd7f291aa94affab51cbb0c4ade8392eb
     //PREGUNTA 2C
 
     @GetMapping("/gethistorialpartidos")
@@ -202,15 +193,4 @@ public class PartidoController {
 
     }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
-     */
-    
->>>>>>> 461bf4dbd7f291aa94affab51cbb0c4ade8392eb
 }
