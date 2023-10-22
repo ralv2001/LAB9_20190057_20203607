@@ -30,7 +30,7 @@ CREATE TABLE `deporte` (
   `pesoDeporte` int NOT NULL,
   PRIMARY KEY (`iddeporte`),
   UNIQUE KEY `nombreActividad_UNIQUE` (`nombreDeporte`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `deporte` (
 
 LOCK TABLES `deporte` WRITE;
 /*!40000 ALTER TABLE `deporte` DISABLE KEYS */;
+INSERT INTO `deporte` VALUES (1,'Fútbol',90),(2,'Básquetbol',75);
 /*!40000 ALTER TABLE `deporte` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +59,7 @@ CREATE TABLE `equipo` (
   UNIQUE KEY `nombre_UNIQUE` (`nombreEquipo`),
   UNIQUE KEY `color_UNIQUE` (`colorEquipo`),
   UNIQUE KEY `mascota_UNIQUE` (`mascota`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +68,7 @@ CREATE TABLE `equipo` (
 
 LOCK TABLES `equipo` WRITE;
 /*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
+INSERT INTO `equipo` VALUES (1,'Lobos','Azul','Lobo'),(2,'Tigres','Amarillo','Tigre');
 /*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +89,7 @@ CREATE TABLE `historialpartidos` (
   KEY `fk_historialPartidos_deporte1_idx` (`deporte_iddeporte`),
   CONSTRAINT `fk_historialPartidos_deporte1` FOREIGN KEY (`deporte_iddeporte`) REFERENCES `deporte` (`iddeporte`),
   CONSTRAINT `fk_historialPartidos_partido1` FOREIGN KEY (`partido_idpartido`) REFERENCES `partido` (`idpartido`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,6 +98,7 @@ CREATE TABLE `historialpartidos` (
 
 LOCK TABLES `historialpartidos` WRITE;
 /*!40000 ALTER TABLE `historialpartidos` DISABLE KEYS */;
+INSERT INTO `historialpartidos` VALUES (2,1,1,'2023-10-22 10:00:00');
 /*!40000 ALTER TABLE `historialpartidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +118,7 @@ CREATE TABLE `participante` (
   PRIMARY KEY (`idparticipante`),
   KEY `fk_participante_equipo_idx` (`equipo`),
   CONSTRAINT `fk_participante_equipo` FOREIGN KEY (`equipo`) REFERENCES `equipo` (`idequipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,6 +127,7 @@ CREATE TABLE `participante` (
 
 LOCK TABLES `participante` WRITE;
 /*!40000 ALTER TABLE `participante` DISABLE KEYS */;
+INSERT INTO `participante` VALUES (1,1,'Ingeniería',1234567890,'Jugador'),(2,2,'Medicina',9876543210,'Jugador');
 /*!40000 ALTER TABLE `participante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,6 +157,7 @@ CREATE TABLE `participantespartido` (
 
 LOCK TABLES `participantespartido` WRITE;
 /*!40000 ALTER TABLE `participantespartido` DISABLE KEYS */;
+INSERT INTO `participantespartido` VALUES (1,1,1,'2023-10-22 10:00:00');
 /*!40000 ALTER TABLE `participantespartido` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +179,7 @@ CREATE TABLE `partido` (
   KEY `fk_partido_equipo2_idx` (`equipoB`),
   CONSTRAINT `fk_partido_equipo1` FOREIGN KEY (`equipoA`) REFERENCES `equipo` (`idequipo`),
   CONSTRAINT `fk_partido_equipo2` FOREIGN KEY (`equipoB`) REFERENCES `equipo` (`idequipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,6 +188,7 @@ CREATE TABLE `partido` (
 
 LOCK TABLES `partido` WRITE;
 /*!40000 ALTER TABLE `partido` DISABLE KEYS */;
+INSERT INTO `partido` VALUES (1,1,2,3,2);
 /*!40000 ALTER TABLE `partido` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -195,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-22  0:16:57
+-- Dump completed on 2023-10-22 10:55:10
