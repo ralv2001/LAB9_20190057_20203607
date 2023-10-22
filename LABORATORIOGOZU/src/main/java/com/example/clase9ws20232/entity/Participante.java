@@ -25,7 +25,7 @@ public class Participante {
     private String carrera;
 
     @Column(name = "codigo", nullable = false)
-    private String codigo;
+    private Double codigo;
 
     @Column(name = "tipoParticipante", nullable = false)
     private String tipoParticipante;
