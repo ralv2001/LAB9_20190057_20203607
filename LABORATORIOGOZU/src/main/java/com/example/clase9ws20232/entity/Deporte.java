@@ -19,5 +19,5 @@ public class Deporte {
     private String nombreDeporte;
 
     @Column(name = "pesoDeporte", nullable = false)
-    private int pesoDeporte;
+    private Integer pesoDeporte;
 }

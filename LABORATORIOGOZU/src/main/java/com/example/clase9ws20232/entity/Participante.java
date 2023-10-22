@@ -18,14 +18,17 @@ public class Participante {
     private Integer idparticipante;
 
     @ManyToOne
-    @JoinColumn(name = "partido_idpartido")
-    private Partido partido;
+    @JoinColumn(name = "equipo")
+    private Equipo equipo;
 
-    @ManyToOne
-    @JoinColumn(name = "deporte_iddeporte")
-    private Deporte deporte;
+    @Column(name = "carrera", nullable = false, length = 45)
+    private String carrera;
 
-    @Column(name = "horaFecha")
-    private Date horaFecha;
+    @Column(name = "codigo")
+    private Double codigo;
+
+    @Column(name = "tipoParticipante", nullable = false, length = 45)
+    private String tipoParticipante;
+
 
 }
