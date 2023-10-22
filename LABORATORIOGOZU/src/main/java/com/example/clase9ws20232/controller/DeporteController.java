@@ -44,7 +44,7 @@ public class DeporteController {
         HashMap<String, String> responseMap = new HashMap<>();
         if (request.getMethod().equals("POST")) {
             responseMap.put("estado", "error");
-            responseMap.put("msg", "Debe enviar un equipo");
+            responseMap.put("msg", "Debe enviar un deporte");
         }
         return ResponseEntity.badRequest().body(responseMap);
     }
