@@ -88,8 +88,6 @@ public class PartidoController {
             respuesta.put("partido", partido);
 
 
-
-
             //si se manda idequipo listare todos los aprticipantes de dicho partido en ese equipo
             //si se manda equipo
             if (idequipo != null) {
