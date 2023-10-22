@@ -19,15 +19,16 @@ public class Partido {
 
     @ManyToOne
     @JoinColumn(name = "equipoA")
-    private Equipo equipoA;
+    private Equipo equipoa;
 
     @ManyToOne
     @JoinColumn(name = "equipoB")
-    private Equipo equipoB;
+    private Equipo equipob;
 
     @Column(name = "scoreA")
-    private Integer scoreA;
+    private Integer scorea;
 
     @Column(name = "scoreB")
-    private Integer scoreB;
+    private Integer scoreb;
 }
+
