@@ -6,6 +6,7 @@ import com.example.clase9ws20232.entity.Partido;
 import com.example.clase9ws20232.repository.EquipoRepository;
 import com.example.clase9ws20232.repository.PartidoRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,6 @@ import java.util.Optional;
 @RequestMapping("/partido")
 public class PartidoController {
 
-
     final PartidoRepository partidoRepository;
     final EquipoRepository equipoRepository;
 
@@ -30,7 +30,7 @@ public class PartidoController {
     }
 
 
-    @GetMapping("/getparticipantes")
+    @GetMapping(value = "/getparticipantes", produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8")
     public ResponseEntity<HashMap<String, Object>> listapartidosparticipantes(
             @RequestParam("idpartido") String idpartido,
             @RequestParam(name = "idequipo", required = false) String idequipo) {

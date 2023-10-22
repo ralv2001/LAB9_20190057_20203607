@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/product")
 public class ProductoController {
 
@@ -26,13 +27,13 @@ public class ProductoController {
     }
 
     //LISTAR
-    @GetMapping(value = {"/list", ""})
+    @GetMapping(value = {"/list", ""}, produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8")
     public List<Product> listaProductos() {
         return productRepository.findAll();
     }
 
     //OBTENER
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8")
     public ResponseEntity<HashMap<String, Object>> buscarProducto(@PathVariable("id") String idStr) {
 
 
@@ -55,7 +56,7 @@ public class ProductoController {
     }
 
     // CREAR /product y /product/
-    @PostMapping(value = {"", "/"})
+    @PostMapping(value = {"", "/"}, produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8")
     public ResponseEntity<HashMap<String, Object>> guardarProducto(
             @RequestBody Product product,
             @RequestParam(value = "fetchId", required = false) boolean fetchId) {
@@ -71,7 +72,7 @@ public class ProductoController {
     }
 
     // ACTUALIZAR
-    @PutMapping(value = {"", "/"}, consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    @PutMapping(value = {"", "/"}, produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     public ResponseEntity<HashMap<String, Object>> actualizar(Product productRecibido) {
 
         HashMap<String, Object> rpta = new HashMap<>();
@@ -125,7 +126,7 @@ public class ProductoController {
     }
 
     // /Product?id
-    @DeleteMapping("")
+    @DeleteMapping(value = "", produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8")
     public ResponseEntity<HashMap<String, Object>> borrar(@RequestParam("id") String idStr){
 
         try{
@@ -157,11 +158,7 @@ public class ProductoController {
     @GetMapping("/buscar/{id}")
     public Product buscarF1(@PathVariable("id") int id) {
         Optional<Product> byId = productRepository.findById(id);
-        if (byId.isPresent()) {
-            return byId.get();
-        } else {
-            return null;
-        }
+        return byId.orElse(null);
     }
 
     /*
