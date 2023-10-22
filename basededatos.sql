@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `partidossdci` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `partidossdci`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: partidossdci
@@ -118,7 +116,7 @@ CREATE TABLE `participante` (
   PRIMARY KEY (`idparticipante`),
   KEY `fk_participante_equipo_idx` (`equipo`),
   CONSTRAINT `fk_participante_equipo` FOREIGN KEY (`equipo`) REFERENCES `equipo` (`idequipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,7 +125,7 @@ CREATE TABLE `participante` (
 
 LOCK TABLES `participante` WRITE;
 /*!40000 ALTER TABLE `participante` DISABLE KEYS */;
-INSERT INTO `participante` VALUES (1,1,'Ingeniería',1234567890,'Jugador'),(2,2,'Medicina',9876543210,'Jugador');
+INSERT INTO `participante` VALUES (1,1,'Ingeniería',1234567890,'Jugador'),(2,2,'Medicina',9876543210,'GozudeGozus'),(4,3,'Arquitectura',1122334455,'Portero'),(5,4,'Derecho',5566778899,'Defensor'),(6,5,'Diseño',2233445566,'Delantero'),(7,6,'Psicología',7788991122,'Mediocampista'),(8,7,'Economía',3344556677,'Entrenador'),(9,8,'Comunicación',8899112233,'Asistente'),(10,9,'Literatura',9911223344,'Coordinador'),(11,10,'Historia',4411223355,'Analista');
 /*!40000 ALTER TABLE `participante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-22 10:55:10
+-- Dump completed on 2023-10-22 11:42:21

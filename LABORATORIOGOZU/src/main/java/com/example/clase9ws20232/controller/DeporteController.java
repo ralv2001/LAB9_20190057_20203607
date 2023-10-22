@@ -8,4 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequestMapping("/deporte")
 public class DeporteController {
+
+    //produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8"
+
 }

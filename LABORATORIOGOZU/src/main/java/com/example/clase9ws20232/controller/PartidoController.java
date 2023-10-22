@@ -23,7 +23,6 @@ import java.util.Optional;
 @RequestMapping("/partido")
 public class PartidoController {
 
-
     final PartidoRepository partidoRepository;
     final EquipoRepository equipoRepository;
     final HistorialPartidosRepository historialPartidosRepository;
@@ -38,9 +37,6 @@ public class PartidoController {
         this.historialPartidosRepository = historialPartidosRepository;
         this.participantesPartidoRepository = participantesPartidoRepository;
     }
-
-
-
 
     //PREGUNTA 2B
     @GetMapping("/getparticipantes")
@@ -102,8 +98,6 @@ public class PartidoController {
     }
 
 
-
-
     //PREGUNTA 2C
     /*
     @GetMapping("/gethistorialpartidos")
@@ -148,6 +142,7 @@ public class PartidoController {
 
     }
 
+<<<<<<< HEAD
 
      */
 
@@ -166,4 +161,6 @@ public class PartidoController {
 
 
 
+=======
+>>>>>>> b58e10682f800e77abd80715704390b1cebfefd2
 }
