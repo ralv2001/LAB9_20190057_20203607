@@ -55,9 +55,6 @@ public class PartidoController {
             respuesta.put("result", "ok");
             respuesta.put("partido", partido);
 
-
-
-
             //si se manda equipo
             if (idequipo != null) {
                 int equipoId = Integer.parseInt(idequipo);
@@ -77,10 +74,6 @@ public class PartidoController {
                     respuesta.put("resultequipo", "ID EQUIPO no encontrado");
                 }
 
-
-
-
-
             //no se mandoidequipo
             } else {
                 // No se proporcionó el parámetro "idequipo", mostrar a todos los participantes del partido
@@ -89,14 +82,11 @@ public class PartidoController {
 
             return ResponseEntity.ok(respuesta);
 
-
-
         } else {
             // El partido no existe
             return ResponseEntity.notFound().build();
         }
     }
-
 
     //PREGUNTA 2C
     /*
@@ -143,9 +133,5 @@ public class PartidoController {
     }
 
      */
-
-
-
-
     
 }
