@@ -142,25 +142,10 @@ public class PartidoController {
 
     }
 
-<<<<<<< HEAD
-
      */
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> b58e10682f800e77abd80715704390b1cebfefd2
+    
 }
