@@ -47,6 +47,8 @@ public class PartidoController {
 
         HashMap<String, Object> responseJson = new HashMap<>();
 
+        System.out.println(partido.getEquipoa() + "   gagagaga   " + partido.getEquipob());
+
         partidoRepository.save(partido);
 
 
@@ -59,6 +61,7 @@ public class PartidoController {
 
         historialPartidos.setHoraFecha(new Date());
 
+        historialPartidosRepository.save(historialPartidos);
 
         responseJson.put("estado", "creado");
         return ResponseEntity.status(HttpStatus.CREATED).body(responseJson);
