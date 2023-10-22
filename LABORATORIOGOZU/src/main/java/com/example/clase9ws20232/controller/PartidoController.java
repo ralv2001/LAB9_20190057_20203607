@@ -59,6 +59,10 @@ public class PartidoController {
             respuesta.put("result", "ok");
             respuesta.put("partido", partido);
 
+
+
+
+            //si se manda equipo
             if (idequipo != null) {
                 int equipoId = Integer.parseInt(idequipo);
                 Optional<Equipo> equipoOptional = equipoRepository.findById(equipoId);
@@ -76,12 +80,21 @@ public class PartidoController {
                 } else {
                     respuesta.put("resultequipo", "ID EQUIPO no encontrado");
                 }
+
+
+
+
+
+            //no se mandoidequipo
             } else {
                 // No se proporcionó el parámetro "idequipo", mostrar a todos los participantes del partido
                 respuesta.put("resultequipo", "No se especificó un equipo");
             }
 
             return ResponseEntity.ok(respuesta);
+
+
+
         } else {
             // El partido no existe
             return ResponseEntity.notFound().build();
@@ -135,7 +148,7 @@ public class PartidoController {
 
     }
 
-    
+
      */
 
 
