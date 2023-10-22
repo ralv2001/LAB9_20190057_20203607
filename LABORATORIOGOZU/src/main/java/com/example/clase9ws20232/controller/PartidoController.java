@@ -92,6 +92,7 @@ public class PartidoController {
 
 
     //PREGUNTA 2C
+    /*
     @GetMapping("/gethistorialpartidos")
     public ResponseEntity<HashMap<String, Object>> LISTAHISTORIAL(
             @RequestParam(name = "idequipo", required = false) String idequipo) {
@@ -110,7 +111,7 @@ public class PartidoController {
                 Equipo equipo = equipoOptional.get();
 
                 // Filtra el historial de partidos por equipo
-                List<HistorialPartidos> historialEquipo = historialPartidosRepository.findBy
+                //List<HistorialPartidos> historialEquipo = historialPartidosRepository.findBy
 
                 respuesta.put("historial", historialEquipo);
 
@@ -133,6 +134,9 @@ public class PartidoController {
             return ResponseEntity.ok(respuesta);
 
     }
+
+    
+     */
 
 
 
