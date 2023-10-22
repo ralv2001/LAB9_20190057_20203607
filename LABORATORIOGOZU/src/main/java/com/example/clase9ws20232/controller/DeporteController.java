@@ -1,10 +1,9 @@
 package com.example.clase9ws20232.controller;
 
 import com.example.clase9ws20232.entity.Deporte;
-import com.example.clase9ws20232.entity.Equipo;
 import com.example.clase9ws20232.repository.DeporteRepository;
-import com.example.clase9ws20232.repository.EquipoRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +29,22 @@ public class DeporteController {
             @RequestParam(value = "fetchId", required = false) boolean fetchId) {
 
         HashMap<String, Object> responseMap = new HashMap<>();
-
-        deporteRepository.save(deporte);
-        if (fetchId) {
-            responseMap.put("id", deporte.getIddeporte());
+        try {
+            deporteRepository.save(deporte);
+            if (fetchId) {
+                responseMap.put("id", deporte.getIddeporte());
+            }
+            responseMap.put("estado", "creado");
+            return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
+        } catch (DataIntegrityViolationException e) {
+            responseMap.put("estado", "error");
+            if (e.getMessage().contains("nombreDeporte_UNIQUE")) {
+                responseMap.put("msg", "El nombre del deporte ya existe en la base de datos.");
+            } else {
+                responseMap.put("msg", "Error de integridad en la base de datos.");
+            }
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseMap);
         }
-        responseMap.put("estado", "creado");
-        return ResponseEntity.status(HttpStatus.CREATED).body(responseMap);
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -49,6 +57,4 @@ public class DeporteController {
         }
         return ResponseEntity.badRequest().body(responseMap);
     }
-    //produces = MediaType.TEXT_PLAIN_VALUE + "; charset=utf-8"
-
 }
