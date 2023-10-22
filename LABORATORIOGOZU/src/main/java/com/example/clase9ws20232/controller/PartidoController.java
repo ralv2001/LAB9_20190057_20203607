@@ -23,7 +23,6 @@ import java.util.Optional;
 @RequestMapping("/partido")
 public class PartidoController {
 
-
     final PartidoRepository partidoRepository;
     final EquipoRepository equipoRepository;
     final HistorialPartidosRepository historialPartidosRepository;
@@ -38,9 +37,6 @@ public class PartidoController {
         this.historialPartidosRepository = historialPartidosRepository;
         this.participantesPartidoRepository = participantesPartidoRepository;
     }
-
-
-
 
     //PREGUNTA 2B
     @GetMapping("/getparticipantes")
@@ -89,8 +85,6 @@ public class PartidoController {
     }
 
 
-
-
     //PREGUNTA 2C
     @GetMapping("/gethistorialpartidos")
     public ResponseEntity<HashMap<String, Object>> LISTAHISTORIAL(
@@ -133,20 +127,5 @@ public class PartidoController {
             return ResponseEntity.ok(respuesta);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
